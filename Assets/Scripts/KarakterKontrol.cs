@@ -8,7 +8,7 @@ public class KarakterKontrol : MonoBehaviour
     // Oyuncu hangi tuþa basýyor ve bu tuþ istediðimiz tuþ mu
     // Bastýðý tuþa göre o yönde hareket vermek
 
-    public Rigidbody2D rb;
+    public Rigidbody2D rb; // variable (deðiþken örneði)
 
     public float hiz;
     public float ziplamaHizi;
@@ -16,15 +16,15 @@ public class KarakterKontrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
+        Debug.Log("Start"); //Console a mesaj yazdýrýyoruz
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)) // basýlý ttutuðumuz týþu kontrol ediyoruz
         {
-            rb.velocity = new Vector2(hiz, rb.velocity.y);
+            rb.velocity = new Vector2(hiz, rb.velocity.y); // karakterimize pozitif X yönünde hýz veriyoruz
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -32,9 +32,9 @@ public class KarakterKontrol : MonoBehaviour
             rb.velocity = new Vector2(hiz * -1, rb.velocity.y);
         }
 
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A)) // tuþtan parmaðýmýzý çektiðimizde olacak durum
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero; // hýzýmýzý sýfýrlýyoruz
         }
 
         if (Input.GetKeyUp(KeyCode.D))
@@ -42,9 +42,9 @@ public class KarakterKontrol : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) // space tuþuna ilk bastýðýmýz aný kontrol ediyoruz
         {
-            rb.velocity = Vector2.up * ziplamaHizi;
+            rb.velocity = Vector2.up * ziplamaHizi; // yukarýya doðu olan hýzýmýzý deðiþtiriyoruz
         }
     }
 }
